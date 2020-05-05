@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: zipkin-server
+  # rabbitmq的连接信息
+#  rabbitmq:
+#    host: localhost
+#    port: 5672
+#    username: yuanshuaif
+#    password: Aa123456
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://yuanshuai:dk@localhost:8082/eureka/
+management:
+  #zipkin启动报错无法访问的解决方法
+  metrics:
+    web:
+      server:
+        auto-time-requests: false
+  security:
+    enabled: false #关闭验证
+info: #/info请求的显示信息
+  app:
+    name: ${spring.application.name}
+    version: 1.0.0
+  build:
+    artifactId: @project.artifactId@
+    version: @project.version@
